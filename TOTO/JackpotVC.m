@@ -52,7 +52,8 @@
     [self.view addSubview:spinner];
     
     NSURLRequest *request = nil;
-    NSString *url = @"http://motailor.com/lottery/totoResult/getLatestResult";
+    //NSString *url = @"http://motailor.com/lottery/totoResult/getLatestResult";
+    NSString *url = @"http://localhost/api/web/v1/results/latest";
     request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     dispatch_queue_t aQueue = dispatch_queue_create("GetResult", NULL);

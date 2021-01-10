@@ -6,20 +6,37 @@
 //  Copyright (c) 2014 USV Solutions. All rights reserved.
 //
 #import "TOTOResultSet.h"
-NSString * const DrawNumber = @"draw_number";
+NSString * const DrawNumber = @"draw_no";
 NSString * const Id = @"id";
-NSString * const ResultDate = @"date";
-NSString * const WinningNumbers = @"winning_numbers";
+NSString * const ResultDate = @"draw_date";
+NSString * const WinningNumbers = @"winning_nos";
 NSString * const AdditionalWinningNumber = @"additional_winning_number";
 NSString * const WinningGroups = @"winning_groups";
+NSString * const group1amt = @"group1amt";
+NSString * const group2amt = @"group2amt";
+NSString * const group3amt = @"group3amt";
+NSString * const group4amt = @"group4amt";
+NSString * const group5amt = @"group5amt";
+NSString * const group6amt = @"group6amt";
+NSString * const group7amt = @"group7amt";
+NSString * const group1shares = @"group1shares";
+NSString * const group2shares = @"group2shares";
+NSString * const group3shares = @"group3shares";
+NSString * const group4shares = @"group4shares";
+NSString * const group5shares = @"group5shares";
+NSString * const group6shares = @"group6shares";
+NSString * const group7shares = @"group7shares";
+
 NSString * const ShareAmountFormat = @"$%.0f";
-NSString * const JackpotDate = @"jackpot_date_time";
-NSString * const JackpotAmount = @"jackpot_result";
+NSString * const JackpotDate = @"next_draw_date";
+NSString * const JackpotAmount = @"next_jackpot";
 
 NSString * const GroupTier = @"group_tier";
 NSString * const Amount = @"amount";
 NSString * const NumOfWinningShares = @"num_of_winning_shares";
 NSString * const WinningBooths = @"winning_booths";
+NSString * const group1booths = @"group1booths";
+NSString * const group2booths = @"group2booths";
 
 @implementation TOTOResultSet
 @synthesize resultDate;
@@ -45,6 +62,13 @@ NSString * const WinningBooths = @"winning_booths";
     TOTOResultSet *result = [[super alloc] init];
     result.winningPrizeGroups = nil;
     NSString *value;
+    NSString *grp1amt, *grp1shares;
+    NSString *grp2amt, *grp2shares;
+    NSString *grp3amt, *grp3shares;
+    NSString *grp4amt, *grp4shares;
+    NSString *grp5amt, *grp5shares;
+    NSString *grp6amt, *grp6shares;
+    NSString *grp7amt, *grp7shares;
     for (NSString *key in dict)
     {
         if ([key isEqualToString:ResultDate]) {
@@ -55,12 +79,12 @@ NSString * const WinningBooths = @"winning_booths";
         }
         else if ([key isEqualToString:WinningNumbers]) {
             value = [dict objectForKey:key];
-            result.winningNumbers = [value componentsSeparatedByString:@","];
+            result.winningNumbers = [value componentsSeparatedByString:@" "];
         }
-        else if ([key isEqualToString:AdditionalWinningNumber]) {
-            value = [dict objectForKey:key];
-            result.additionalWinningNumber = [value intValue];
-        }
+//        else if ([key isEqualToString:AdditionalWinningNumber]) {
+//            value = [dict objectForKey:key];
+//            result.additionalWinningNumber = [value intValue];
+//        }
         else if ([key isEqualToString:JackpotAmount]) {
             value = [dict objectForKey:key];
             if (![value isKindOfClass:[NSNull class]])
@@ -71,23 +95,83 @@ NSString * const WinningBooths = @"winning_booths";
             if (![value isKindOfClass:[NSNull class]])
                 result.jackpotDate = value;
         }
-        else if ([key isEqualToString:WinningGroups]) {
-            NSArray *winGroups = (NSArray *) [dict objectForKey:key];
-            if (winGroups != nil && winGroups.count > 0) {
-                NSMutableArray *test = [[NSMutableArray alloc] init];
-                for (NSDictionary *winGroup in winGroups) {
-                    NSString *tier = [winGroup objectForKey:GroupTier];
-                    NSString *shareAmount = [winGroup objectForKey:Amount];
-                    NSString *noOfWinningShares = [winGroup objectForKey:NumOfWinningShares];
-                    NSString *winningBooths = [winGroup objectForKey:WinningBooths];
-                    NSString *processedValue = [value isKindOfClass:[NSNull class]] ? @"" : winningBooths;
-                    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:tier shareAmount:shareAmount numberOfWinningShares:noOfWinningShares winningBooths:processedValue]];
-                }
-                result.winningPrizeGroups = [test mutableCopy];
-            }
+        else if ([key isEqualToString:group1booths]) {
+            value = [dict objectForKey:key];
+            result.winningLocationsGroup1 = value;
         }
+        else if ([key isEqualToString:group2booths]) {
+            value = [dict objectForKey:key];
+            result.winningLocationsGroup2 = value;
+        }
+        else if ([key isEqualToString:group1amt]) {
+            grp1amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group1shares]) {
+            grp1shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group2amt]) {
+            grp2amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group2shares]) {
+            grp2shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group3amt]) {
+            grp3amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group3shares]) {
+            grp3shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group4amt]) {
+            grp4amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group4shares]) {
+            grp4shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group5amt]) {
+            grp5amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group5shares]) {
+            grp5shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group6amt]) {
+            grp6amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group6shares]) {
+            grp6shares = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group7amt]) {
+            grp7amt = [dict objectForKey:key];
+        }
+        else if ([key isEqualToString:group7shares]) {
+            grp7shares = [dict objectForKey:key];
+        }
+        
+//        else if ([key isEqualToString:WinningGroups]) {
+//            NSArray *winGroups = (NSArray *) [dict objectForKey:key];
+//            if (winGroups != nil && winGroups.count > 0) {
+//                NSMutableArray *test = [[NSMutableArray alloc] init];
+//                for (NSDictionary *winGroup in winGroups) {
+//                    NSString *tier = [winGroup objectForKey:GroupTier];
+//                    NSString *shareAmount = [winGroup objectForKey:Amount];
+//                    NSString *noOfWinningShares = [winGroup objectForKey:NumOfWinningShares];
+//                    NSString *winningBooths = [winGroup objectForKey:WinningBooths];
+//                    NSString *processedValue = [value isKindOfClass:[NSNull class]] ? @"" : winningBooths;
+//                    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:tier shareAmount:shareAmount numberOfWinningShares:noOfWinningShares winningBooths:processedValue]];
+//                }
+//                result.winningPrizeGroups = [test mutableCopy];
+//            }
+//        }
     }
     
+    NSMutableArray *test = [[NSMutableArray alloc] init];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"1" shareAmount:grp1amt numberOfWinningShares:grp1shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"2" shareAmount:grp2amt numberOfWinningShares:grp2shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"3" shareAmount:grp3amt numberOfWinningShares:grp3shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"4" shareAmount:grp4amt numberOfWinningShares:grp4shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"5" shareAmount:grp5amt numberOfWinningShares:grp5shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"6" shareAmount:grp6amt numberOfWinningShares:grp6shares winningBooths:@""]];
+    [test addObject:[[WinningPrizeGroup alloc] initWithStringParameters:@"7" shareAmount:grp7amt numberOfWinningShares:grp7shares winningBooths:@""]];
+    result.winningPrizeGroups = [test mutableCopy];
     return result;
 }
 
@@ -134,25 +218,26 @@ NSString * const WinningBooths = @"winning_booths";
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSError *jsonParsingError = nil;
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:0 error:&jsonParsingError];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&jsonParsingError];
     
     TOTOResultSet *temp = [[TOTOResultSet class] initWithDictionary:result];
     return temp;
 }
 
 + (TOTOResultSet *)getLatestResult {
-    NSString *url = @"http://motailor.com/lottery/totoResult/getLatestResult";
+    NSString *url = @"http://localhost/api/web/v1/results/latest";
     return [[TOTOResultSet class] getResultAtUrl:url];
 }
 
 - (TOTOResultSet *)getPreviousResult {
-    NSString *url = @"http://motailor.com/lottery/totoResult/getPrevious/date/";
+    NSString *url = @"http://localhost/api/web/v1/results/previous?date=";
     url = [url stringByAppendingString:[self getResultDate]];
     return [[TOTOResultSet class] getResultAtUrl:url];
 }
 
 - (TOTOResultSet *)getNextResult {
-    NSString *url = @"http://motailor.com/lottery/totoResult/getNext/date/";
+    //NSString *url = @"http://motailor.com/lottery/totoResult/getNext/date/";
+    NSString *url = @"http://localhost/api/web/v1/results/next?date=";
     url = [url stringByAppendingString:[self getResultDate]];
     return [[TOTOResultSet class] getResultAtUrl:url];
 }
@@ -162,7 +247,8 @@ NSString * const WinningBooths = @"winning_booths";
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:date];
     
-    NSString *url = @"http://motailor.com/lottery/totoResult/get/date/";
+    //NSString *url = @"http://motailor.com/lottery/totoResult/get/date/";
+    NSString *url = @"http://localhost/api/web/v1/results/one?date=";
     url = [url stringByAppendingString:dateString];
     return [[TOTOResultSet class] getResultAtUrl:url];
 }
