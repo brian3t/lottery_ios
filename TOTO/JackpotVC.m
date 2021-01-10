@@ -78,7 +78,13 @@ static NSString * const APIURL = @"https://usvsolutions.com/lottery/totoResult/"
             NSDate *date = [[Utilities class] dateFromString:datePart];
             self.jackpotDate.text = [[Utilities class] getResultDateForDisplay:date];
             NSString *saleClose = [self.resultSet.jackpotDate substringWithRange:NSMakeRange(11, 5)];
-            self.jackpotTime.text = [@"Sales close at: " stringByAppendingString:saleClose];
+            if (saleClose == (id)[NSNull null] || saleClose.length == 0 ) {
+                saleClose = @"N/A";
+                self.jackpotTime.text = @"";
+            }
+            else {
+                self.jackpotTime.text = [@"Sales close at: " stringByAppendingString:saleClose];
+            }
             [spinner removeFromSuperview];
         });
     });

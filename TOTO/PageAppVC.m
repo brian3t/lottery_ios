@@ -151,7 +151,9 @@
         return nil;
     }
     
-    index++;
+    /*
+     BN 01/10/21 disabled this button because it's causing 100% CPU
+     index++;
     if (index == [self.results count]) {
         TOTOResultSet *prevResult = [vc.resultSet getPreviousResult];
         if (prevResult == nil) {
@@ -161,6 +163,7 @@
         else
             [_results addObject:prevResult];
     }
+     */
     
     return [self viewControllerAtIndex:index];
 }
