@@ -19,7 +19,7 @@
 NSString *const Group1LocationsTag = @"{Group1Locations}";
 NSString *const Group2LocationsTag = @"{Group2Locations}";
 NSString *const NewLineTag = @"\r\n";
-NSString *const DisplayTemplate = @"<div style='font-family:Helvetica;'><div style='color:green;font-weight:600;text-align:center'>Winning Booths</div><div style='color:green;font-weight:600;'>Group 1</div>{Group1Locations}<br /><br /><div style='color:green;font-weight:600;'>Group 2</div>{Group2Locations}</div>";
+NSString *const DisplayTemplate = @"<div style='font-family:Helvetica;'><div style='color:green;font-weight:600;'>Group 1</div>{Group1Locations}<br /><br /><div style='color:green;font-weight:600;'>Group 2</div>{Group2Locations}</div>";
 NSString *const DataNotAvailable = @"Data not available";
 
 @synthesize webView;
@@ -44,20 +44,16 @@ NSString *const DataNotAvailable = @"Data not available";
 //    self.lblLocation.layer.borderWidth = 2.0;
     
     NSString *temp = DisplayTemplate;
-    //WinningPrizeGroup *group1 = (WinningPrizeGroup *)[self.resultSet.winningPrizeGroups objectAtIndex:0];
-    //WinningPrizeGroup *group2 = (WinningPrizeGroup *)[self.resultSet.winningPrizeGroups objectAtIndex:1];
+    WinningPrizeGroup *group1 = (WinningPrizeGroup *)[self.resultSet.winningPrizeGroups objectAtIndex:0];
+    WinningPrizeGroup *group2 = (WinningPrizeGroup *)[self.resultSet.winningPrizeGroups objectAtIndex:1];
     NSString *finalValue1 = DataNotAvailable;
     NSString *finalValue2 = DataNotAvailable;
-    finalValue1 = resultSet.winningLocationsGroup1;
-    finalValue2 = resultSet.winningLocationsGroup2;
-    finalValue2 = [finalValue2 stringByReplacingOccurrencesOfString:@"\n"
-                                                         withString:@"<br />"];
     
-//    if (group1 != nil)
-//        finalValue1 = [group1.winningBooths isKindOfClass:[NSNull class]] ? DataNotAvailable : group1.winningBooths;
-//    
-//    if (group2 != nil)
-//        finalValue2 = [group2.winningBooths isKindOfClass:[NSNull class]] ? DataNotAvailable : group2.winningBooths;
+    if (group1 != nil)
+        finalValue1 = [group1.winningBooths isKindOfClass:[NSNull class]] ? DataNotAvailable : group1.winningBooths;
+    
+    if (group2 != nil)
+        finalValue2 = [group2.winningBooths isKindOfClass:[NSNull class]] ? DataNotAvailable : group2.winningBooths;
     
     temp = [temp stringByReplacingOccurrencesOfString:Group1LocationsTag withString:finalValue1];
     temp = [temp stringByReplacingOccurrencesOfString:Group2LocationsTag withString:finalValue2];

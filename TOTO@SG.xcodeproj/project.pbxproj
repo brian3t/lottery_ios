@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6139DA991956FC2100F76ACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA981956FC2100F76ACC /* UIKit.framework */; };
-		6139DA9B1956FC2100F76ACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA9A1956FC2100F76ACC /* Foundation.framework */; };
-		6139DA9D1956FC2100F76ACC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA9C1956FC2100F76ACC /* CoreGraphics.framework */; };
 		6139DAA31956FC2100F76ACC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6139DAA11956FC2100F76ACC /* InfoPlist.strings */; };
 		6139DAA51956FC2100F76ACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139DAA41956FC2100F76ACC /* main.m */; };
 		6139DAA91956FC2100F76ACC /* TOTOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139DAA81956FC2100F76ACC /* TOTOAppDelegate.m */; };
@@ -30,7 +27,6 @@
 		615D8768196465EE00726518 /* PastResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 615D8767196465EE00726518 /* PastResultsTVC.m */; };
 		617E9EDB195B2DCD00C03153 /* TOTOResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E9EDA195B2DCD00C03153 /* TOTOResultVC.m */; };
 		617E9EE1195E9AA000C03153 /* WinningBoothsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617E9EE0195E9AA000C03153 /* WinningBoothsVC.m */; };
-		6180A63C195F1F86000DCC52 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6180A63B195F1F86000DCC52 /* MessageUI.framework */; };
 		6187B4F2198D092000615B94 /* PageAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187B4F1198D092000615B94 /* PageAppVC.m */; };
 		6187B4F5198D096000615B94 /* JackpotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187B4F4198D096000615B94 /* JackpotVC.m */; };
 		618908DA1985420800E6C698 /* check_my_nos.png in Resources */ = {isa = PBXBuildFile; fileRef = 618908D81985420800E6C698 /* check_my_nos.png */; };
@@ -39,7 +35,11 @@
 		618908E1198544CE00E6C698 /* PastResults.png in Resources */ = {isa = PBXBuildFile; fileRef = 618908E0198544CE00E6C698 /* PastResults.png */; };
 		6189367E19600C4B00516FA9 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6189367D19600C4B00516FA9 /* Utilities.m */; };
 		619C49D3198D400800F25770 /* forwardIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 619C49D2198D400800F25770 /* forwardIcon.png */; };
-		61E3D562195EBFE800901852 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E3D561195EBFE800901852 /* QuartzCore.framework */; };
+		FADA08AD1A6D599E00EA7093 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6180A63B195F1F86000DCC52 /* MessageUI.framework */; };
+		FADA08AE1A6D59A600EA7093 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E3D561195EBFE800901852 /* QuartzCore.framework */; };
+		FADA08AF1A6D59AE00EA7093 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA981956FC2100F76ACC /* UIKit.framework */; };
+		FADA08B01A6D59B500EA7093 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA9A1956FC2100F76ACC /* Foundation.framework */; };
+		FADA08B11A6D59BC00EA7093 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6139DA9C1956FC2100F76ACC /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,11 +105,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6180A63C195F1F86000DCC52 /* MessageUI.framework in Frameworks */,
-				61E3D562195EBFE800901852 /* QuartzCore.framework in Frameworks */,
-				6139DA991956FC2100F76ACC /* UIKit.framework in Frameworks */,
-				6139DA9B1956FC2100F76ACC /* Foundation.framework in Frameworks */,
-				6139DA9D1956FC2100F76ACC /* CoreGraphics.framework in Frameworks */,
+				FADA08B11A6D59BC00EA7093 /* CoreGraphics.framework in Frameworks */,
+				FADA08B01A6D59B500EA7093 /* Foundation.framework in Frameworks */,
+				FADA08AF1A6D59AE00EA7093 /* UIKit.framework in Frameworks */,
+				FADA08AE1A6D59A600EA7093 /* QuartzCore.framework in Frameworks */,
+				FADA08AD1A6D599E00EA7093 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,9 +442,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 			};
 			name = Debug;
 		};
@@ -466,9 +466,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -476,14 +476,13 @@
 		6139DACE1956FC2100F76ACC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 8SLX23CYL6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOTO/TOTO@SG-Prefix.pch";
 				INFOPLIST_FILE = "TOTO/TOTO@SG-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.0.1;
 				PRODUCT_NAME = "TOTO@SG";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -491,14 +490,13 @@
 		6139DACF1956FC2100F76ACC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_TEAM = 8SLX23CYL6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOTO/TOTO@SG-Prefix.pch";
 				INFOPLIST_FILE = "TOTO/TOTO@SG-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MARKETING_VERSION = 1.0.1;
 				PRODUCT_NAME = "TOTO@SG";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

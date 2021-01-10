@@ -14,6 +14,8 @@
 
 @end
 
+static NSString * const APIURL = @"https://usvsolutions.com/lottery/totoResult/";
+
 @implementation PastResultsTVC
 @synthesize results = _results;
 
@@ -37,8 +39,9 @@
     
     dispatch_queue_t aQueue = dispatch_queue_create("GetAllResult", NULL);
     dispatch_async(aQueue, ^{
-        //NSURL *url = [NSURL URLWithString:@"http://motailor.com/lottery/totoResult/get"];
-        NSURL *url = [NSURL URLWithString:@"http://localhost/api/web/v1/results/all"];
+        //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        //NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSURL *url = [NSURL URLWithString:[APIURL stringByAppendingString:@"get"]];
         NSData *response = [NSData dataWithContentsOfURL:url];
         NSError *jsonParsingError = nil;
         //NSDictionary *temp = [NSJSONSerialization JSONObjectWithData:response options:0 error:&jsonParsingError];
@@ -52,7 +55,6 @@
             [spinner removeFromSuperview];
             _results = [[NSArray alloc] initWithArray:resultsTemp];
             [self.tableView reloadData];
-            [self.refreshControl endRefreshing];
         });
     });
 }
@@ -65,15 +67,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    UIRefreshControl *refreshCtrl = [[UIRefreshControl alloc] init];
-    refreshCtrl.tintColor = [[UIColor alloc] initWithRed:210.0/255 green:54.0/255 blue:45.0/255 alpha:100];
-    [refreshCtrl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshCtrl;
-}
-
-- (void)refreshData {
-    [self getAllResults];
 }
 
 #pragma mark - Table view data source

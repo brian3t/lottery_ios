@@ -19,6 +19,8 @@
 @property (nonatomic, strong) TOTOResultSet *resultSet;
 @end
 
+static NSString * const APIURL = @"https://usvsolutions.com/lottery/totoResult/";
+
 @implementation JackpotVC
 @synthesize jackpotAmount;
 @synthesize jackpotDate;
@@ -52,8 +54,7 @@
     [self.view addSubview:spinner];
     
     NSURLRequest *request = nil;
-    //NSString *url = @"http://motailor.com/lottery/totoResult/getLatestResult";
-    NSString *url = @"http://localhost/api/web/v1/results/latest";
+    NSString *url = [APIURL stringByAppendingString:@"getLatestResult"];
     request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     dispatch_queue_t aQueue = dispatch_queue_create("GetResult", NULL);
