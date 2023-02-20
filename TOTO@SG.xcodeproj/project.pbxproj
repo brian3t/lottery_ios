@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6139DAA31956FC2100F76ACC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6139DAA11956FC2100F76ACC /* InfoPlist.strings */; };
 		6139DAA51956FC2100F76ACC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139DAA41956FC2100F76ACC /* main.m */; };
 		6139DAA91956FC2100F76ACC /* TOTOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6139DAA81956FC2100F76ACC /* TOTOAppDelegate.m */; };
 		6139DAAB1956FC2100F76ACC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6139DAAA1956FC2100F76ACC /* Default.png */; };
@@ -58,7 +57,6 @@
 		6139DA9A1956FC2100F76ACC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6139DA9C1956FC2100F76ACC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6139DAA01956FC2100F76ACC /* TOTO@SG-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOTO@SG-Info.plist"; sourceTree = "<group>"; };
-		6139DAA21956FC2100F76ACC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6139DAA41956FC2100F76ACC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6139DAA61956FC2100F76ACC /* TOTO@SG-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TOTO@SG-Prefix.pch"; sourceTree = "<group>"; };
 		6139DAA71956FC2100F76ACC /* TOTOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOTOAppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +96,8 @@
 		6189367D19600C4B00516FA9 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		619C49D2198D400800F25770 /* forwardIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forwardIcon.png; path = Resources/Images/forwardIcon.png; sourceTree = "<group>"; };
 		61E3D561195EBFE800901852 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6AE9485829A33DF700E914DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AE9485A29A33F7C00E914DD /* English */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = English; path = English.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +129,7 @@
 		6139DA8C1956FC2100F76ACC = {
 			isa = PBXGroup;
 			children = (
+				6AE9485829A33DF700E914DD /* Info.plist */,
 				6180A63B195F1F86000DCC52 /* MessageUI.framework */,
 				61E3D561195EBFE800901852 /* QuartzCore.framework */,
 				6139DA9E1956FC2100F76ACC /* TOTO */,
@@ -197,7 +198,6 @@
 				618908D81985420800E6C698 /* check_my_nos.png */,
 				618908D91985420800E6C698 /* today_result.png */,
 				6139DAA01956FC2100F76ACC /* TOTO@SG-Info.plist */,
-				6139DAA11956FC2100F76ACC /* InfoPlist.strings */,
 				6139DAA41956FC2100F76ACC /* main.m */,
 				6139DAA61956FC2100F76ACC /* TOTO@SG-Prefix.pch */,
 				6139DAAA1956FC2100F76ACC /* Default.png */,
@@ -311,7 +311,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6139DAA31956FC2100F76ACC /* InfoPlist.strings in Resources */,
 				6139DAAB1956FC2100F76ACC /* Default.png in Resources */,
 				6139DAAD1956FC2100F76ACC /* Default@2x.png in Resources */,
 				6139DAAF1956FC2100F76ACC /* Default-568h@2x.png in Resources */,
@@ -390,18 +389,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6139DAA11956FC2100F76ACC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6139DAA21956FC2100F76ACC /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		6139DAB01956FC2100F76ACC /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6139DAB11956FC2100F76ACC /* en */,
+				6AE9485A29A33F7C00E914DD /* English */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -442,6 +434,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos6.1;
@@ -466,6 +459,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos6.1;
